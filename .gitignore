@@ -22,3 +22,25 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 replay_pid*
+
+# Spring Boot-specific #
+# Ignore application.properties for security reasons, if necessary
+# application.properties
+
+# Ignore the build directory
+/target/
+
+# Ignore Eclipse project files
+/.classpath
+/.project
+/.settings/
+
+# Ignore IntelliJ project files
+/.idea/
+*.iml
+
+# Ignore Visual Studio Code project files
+/.vscode/
+
+# Ignore macOS-specific files
+.DS_Store
