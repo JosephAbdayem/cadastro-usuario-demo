@@ -1,4 +1,3 @@
-// UserRepository.java
 package com.cadastrousuariodemo.repository;
 
 import com.cadastrousuariodemo.model.Usuario;
@@ -10,9 +9,9 @@ import java.util.Optional;
 
 /**
  * Interface de Repositório de Usuários que estende JpaRepository.
- * <p>
+ *
  * Implementa os métodos básicos de CRUD e consultas personalizadas.
- * <p>
+ *
  * Aplica os princípios de Clean Code e SOLID.
  *
  * @author Autor

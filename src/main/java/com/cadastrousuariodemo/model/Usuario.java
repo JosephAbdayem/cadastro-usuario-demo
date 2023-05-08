@@ -106,24 +106,6 @@ public class Usuario {
     // Métodos
 
     /**
-     * Adiciona uma nova habilidade à lista de habilidades do usuário.
-     *
-     * @param habilidade a habilidade a ser adicionada
-     */
-    public void adicionarHabilidade(Habilidade habilidade) {
-        habilidades.add(habilidade);
-    }
-
-    /**
-     * Remove uma habilidade da lista de habilidades do usuário.
-     *
-     * @param habilidade a habilidade a ser removida
-     */
-    public void removerHabilidade(Habilidade habilidade) {
-        habilidades.remove(habilidade);
-    }
-
-    /**
      * Verifica se dois usuarios são iguais.
      *
      * @param obj a usuario a ser comparada
