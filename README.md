@@ -15,7 +15,6 @@ Para rodar a aplicação, siga os passos abaixo:
 1. Clone este repositório em sua máquina:
 
 ```bash
-
 git clone https://github.com/JosephAbdayem/cadastro-usuario-demo.git
 ```
 
@@ -23,15 +22,13 @@ git clone https://github.com/JosephAbdayem/cadastro-usuario-demo.git
 1. Entre na pasta do projeto:
 
 ```bash
-
 cd cadastro-usuario-demo
 ```
 
 
 1. Execute o comando para rodar a aplicação:
 
-```arduino
-
+```bash
 mvn spring-boot:run
 ```
 
