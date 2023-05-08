@@ -14,7 +14,6 @@ import java.util.Optional;
  *
  * Aplica os princípios de Clean Code e SOLID.
  *
- * @author Autor
  * @version 1.0
  * @since 2023-05-08
  */
@@ -24,22 +23,22 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
     /**
      * Retorna uma lista com todos os usuários.
      *
-     * @return List<Usuario> - lista de usuários
+     * @return a lista de usuários encontrados
      */
     List<Usuario> findAll();
 
     /**
-     * Retorna um Optional contendo um usuário a partir do ID informado.
+     * Busca um usuário pelo seu ID.
      *
-     * @param id Long - ID do usuário
-     * @return Optional<Usuario> - usuário encontrado, se presente
+     * @param id o ID do usuário a ser buscado
+     * @return um Optional contendo o usuário encontrado (se presente)
      */
     Optional<Usuario> findById(Long id);
 
     /**
-     * Remove um usuário a partir do ID informado.
+     * Deleta um usuário pelo seu ID.
      *
-     * @param id Long - ID do usuário
+     * @param id o ID do usuário a ser deletado
      */
     void deleteById(Long id);
 }

@@ -2,6 +2,7 @@ package com.cadastrousuariodemo.controller;
 
 import com.cadastrousuariodemo.model.Usuario;
 import com.cadastrousuariodemo.repository.UsuarioRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,7 +14,8 @@ import java.util.Optional;
 
 /**
  * Classe controladora de Usuários.
- * Contém os endpoints para gerenciar os usuários.
+ *
+ * Aplica os princípios de Clean Code e SOLID.
  *
  * @version 1.0
  * @since 2023-05-08
@@ -28,11 +30,11 @@ public class UsuarioController {
     /**
      * Retorna todos os usuários.
      *
-     * @return ResponseEntity<List < Usuario>> - lista de usuários
+     * @return ResponseEntity<List<Usuario>> - lista de usuários
      */
     @GetMapping
     public ResponseEntity<List<Usuario>> findAll() {
-        return new ResponseEntity<>(usuarioRepository.findAll(), HttpStatus.OK);
+          return new ResponseEntity<>(usuarioRepository.findAll(), HttpStatus.OK);
     }
 
     /**
@@ -46,17 +48,31 @@ public class UsuarioController {
         Optional<Usuario> usuario = usuarioRepository.findById(id);
 
         if (usuario.isPresent()) {
-            return new ResponseEntity<>(usuario.get(), HttpStatus.OK);
+            return ResponseEntity.ok(usuario.get());
         } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            return ResponseEntity.notFound().build();
         }
     }
 
+    /**
+     * Cria um novo usuário.
+     *
+     * @param usuario Usuario - usuário a ser criado
+     * @return ResponseEntity<Usuario> - usuário criado
+     */
     @PostMapping
     public ResponseEntity<Usuario> create(@Valid @RequestBody Usuario usuario) {
-        return new ResponseEntity<>(usuarioRepository.save(usuario), HttpStatus.CREATED);
+        Usuario novoUsuario = usuarioRepository.save(usuario);
+        return ResponseEntity.status(HttpStatus.CREATED).body(novoUsuario);
     }
 
+    /**
+     * Atualiza um usuário a partir do ID informado.
+     *
+     * @param id Long - ID do usuário
+     * @param usuario Usuario - usuário a ser atualizado
+     * @return ResponseEntity<Usuario> - usuário atualizado
+     */
     @PutMapping("/{id}")
     public ResponseEntity<Usuario> update(@PathVariable Long id, @Valid @RequestBody Usuario usuario) {
         Optional<Usuario> usuarioExistente = usuarioRepository.findById(id);

@@ -1,7 +1,5 @@
 package com.cadastrousuariodemo.model;
 
-
-
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 
@@ -59,17 +57,21 @@ public class Habilidade {
     // Métodos
 
     /**
-     * Verifica se duas habilidades são iguais.
+     * Compara se duas habilidades são iguais.
      *
-     * @param obj a habilidade a ser comparada
+     * @param o o objeto a ser comparado
      * @return true se as habilidades são iguais, false caso contrário
      */
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (obj == null || getClass() != obj.getClass()) return false;
-        Habilidade habilidade = (Habilidade) obj;
-        return id.equals(habilidade.id) && nome.equals(habilidade.nome) && descricao.equals(habilidade.descricao);
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Habilidade habilidade = (Habilidade) o;
+
+        if (!id.equals(habilidade.id)) return false;
+        if (!nome.equals(habilidade.nome)) return false;
+        return descricao.equals(habilidade.descricao);
     }
 
     /**
@@ -79,6 +81,10 @@ public class Habilidade {
      */
     @Override
     public String toString() {
-        return "Habilidade{" + "id=" + id + ", nome='" + nome + '\'' + ", descricao='" + descricao + '\'' + '}';
+        return "Habilidade{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", descricao='" + descricao + '\'' +
+                '}';
     }
 }
