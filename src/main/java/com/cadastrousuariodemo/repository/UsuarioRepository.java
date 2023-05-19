@@ -41,4 +41,5 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
      * @param id o ID do usuário a ser deletado
      */
     void deleteById(Long id);
+
 }
